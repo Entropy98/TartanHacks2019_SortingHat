@@ -1,26 +1,25 @@
-def summation(x):
-    return 0
-
+from playsound import playsound
 
 def range(x):
-    return 0
+    print(x)
+    try:
+        return int(x)
+    except:
+        return int(x.real + x.imag)
 
 def switch(arg):
     switcher = {
-        0: "Gryffindor",
-        1: "Hufflepuff",
-        2: "Ravenclaw",
-        3: "Slytherin"
+        0: "griffindor",
+        1: "hufflepuff",
+        2: "ravenclaw",
+        3: "slitherin"
     }
-    return switcher.get(arg, "dumbass bitch")
+    return switcher.get(arg%4, "wizard harry")
 
-def threshold(values):
-    a = summation(values)
+def threshold(vals):
+    a = sum(vals)/len(vals)
     return switch(range(a))
 
-def conversateHoe():
-    pass
-
-def main():
-    conversateHoe()
-    pass
+def place(vals):
+    house = threshold(vals)
+    playsound(house + ".wav")
